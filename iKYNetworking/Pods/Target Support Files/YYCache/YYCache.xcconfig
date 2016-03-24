@@ -1,0 +1,1 @@
+YYCACHE_OTHER_LDFLAGS = -l"sqlite3" -framework "CoreFoundation" -framework "QuartzCore" -framework "UIKit"
