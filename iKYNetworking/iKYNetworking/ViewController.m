@@ -8,11 +8,10 @@
 
 #import "ViewController.h"
 #import "iKYNetworking.h"
+#import "AFNetworking.h"
 
 @interface ViewController ()
-
 @end
-
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -23,16 +22,36 @@
     NSDictionary *postDict = @{ @"urls": @[@"http://www.henishuo.com/git-use-inwork/",
                                            @"http://www.henishuo.com/ios-open-source-hybloopscrollview/"]
                                 };
-    NSString *path = @"/urls?site=www.henishuo.com&token=bRidefmXoNxIi3Jp";
+
     // 由于这里有两套基础路径，用时就需要更新
-    [iKYNetworking setUpBaseUrl:@"http://data.zz.baidu.com"];
-    [iKYNetworking postWithUrlString:path params:postDict cacheDataPolicy:iKYCahceRequestCachePolicyCacheDataDontLoad success:^(id response) {
+//    [iKYNetworking setUpBaseUrl:@"http://www.baidu.com"];
+//   [iKYNetworking postWithUrlString:path params:nil success:^(id response) {
+//
+//   } fail:^(NSError *error) {
+//
+//   }];
+
+    NSString *urlPath = @"http://piao.zhongchengbus.cn/api/QueryRecommendLines";
+;
+    NSString *baiduURL = @"http://www.baidu.com";
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[@"CityName"] = @"";
+
+
+//    [iKYNetworking postWithUrlString:urlPath params:dict success:^(id response) {
+//        NSLog(@"%@",response);
+//    } fail:^(NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
+
+    [iKYNetworking getWithUrlString:urlPath success:^(id response) {
+        NSLog(@"%@",response);
     } fail:^(NSError *error) {
-        
+        NSLog(@"%@",error);
     }];
-    NSString *postURL = @"http://www.henishuo.com/git-use-inwork/?adlfjlasdjf";
-    NSRange range = [postURL rangeOfString:@"?"];
-    NSLog(@"%@",[postURL substringToIndex:range.location]);
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -23,9 +23,12 @@ typedef NS_ENUM(NSUInteger, iKYRequestCachePolicy) { /// 设置缓存策略
     iKYCahceRequestCachePolicyReturnCacheDataOrLoad = 2, ///< 有缓存就用缓存，没有缓存则重新发送请求（数据不变的时候使用）
     iKYCahceRequestCachePolicyCacheDataDontLoad = 3, ///< 有缓存则先用缓存，没有缓存就不发送请求，当错误处理
 };
-@class AFHTTPRequestOperation;
 // 用iKYRequestOperation来代替，减少对第三方的依赖
-typedef AFHTTPRequestOperation iKYRequstOperation;
+typedef NSURLSessionDataTask iKYRequestDataTask;
+/// 替代 NSURLSessionDownloadTask
+typedef NSURLSessionDownloadTask iKYRequestDownLoadDataTask;
+/// 替代 NSURLSessionUploadTask
+typedef NSURLSessionDataTask iKYRequestUpLoadDataTask;
 
 /**
  *  请求成功后的回调
@@ -41,26 +44,19 @@ typedef void(^iKYResponseSuccess)(id response);
 typedef void(^iKYResponseFail)(NSError *error);
 
 /**
- *  当前的下载进度
- *
- *  @param bytesRead                已下载的大小
- *  @param totalBytesRead           文件总大小
- *  @param totalBytesExpectedToRead 还有需要下载的大小
+ 当前的下载进度
+
+ @param downloadProgress 下载进度
  */
-typedef void(^iKYDownloadProgress)(NSUInteger bytesRead,
-                                   long long totalBytesRead,
-                                   long long totalBytesExpectedToRead);
+typedef void(^iKYDownloadProgress)(NSProgress *downloadProgress);
+
 
 /**
- *  当前的上传进度
- *
- *  @param bytesRead                已下载的大小
- *  @param totalBytesRead           文件总大小
- *  @param totalBytesExpectedToRead 还有需要下载的大小
+ 当前的下载进度
+
+ @param downloadProgress 下载进度
  */
-typedef void(^iKYUpLoadProgress)(NSUInteger bytesRead,
-                                   long long totalBytesRead,
-                                   long long totalBytesExpectedToRead);
+typedef void(^iKYUpLoadProgress)(NSProgress *downloadProgress);
 @interface iKYNetworking : NSObject
 #pragma mark- 基础接口配置
 /**
@@ -126,7 +122,7 @@ typedef void(^iKYUpLoadProgress)(NSUInteger bytesRead,
  *
  *  @return 返回的对象中有可取消请求的API
  */
-+ (iKYRequstOperation *)getWithUrlString:(NSString *)urlString
++ (iKYRequestDataTask *)getWithUrlString:(NSString *)urlString
                                   params:(NSDictionary *)params
                                  success:(iKYResponseSuccess)success
                                     fail:(iKYResponseFail)fail;
@@ -140,7 +136,7 @@ typedef void(^iKYUpLoadProgress)(NSUInteger bytesRead,
  *
  *  @return 返回的对象中有可取消请求的API
  */
-+ (iKYRequstOperation *)getWithUrlString:(NSString *)urlString
++ (iKYRequestDataTask *)getWithUrlString:(NSString *)urlString
                                  success:(iKYResponseSuccess)success
                                     fail:(iKYResponseFail)fail;
 
@@ -155,7 +151,7 @@ typedef void(^iKYUpLoadProgress)(NSUInteger bytesRead,
  *
  *  @return 返回的对象中有可取消请求的API
  */
-+ (iKYRequstOperation *)postWithUrlString:(NSString *)urlString
++ (iKYRequestDataTask *)postWithUrlString:(NSString *)urlString
                                    params:(NSDictionary *)params
                                   success:(iKYResponseSuccess)success
                                      fail:(iKYResponseFail)fail;
@@ -172,7 +168,7 @@ typedef void(^iKYUpLoadProgress)(NSUInteger bytesRead,
  *
  *  @return 返回的对象中有可取消请求的API
  */
-+ (iKYRequstOperation *)postWithUrlString:(NSString *)urlString
++ (iKYRequestDataTask *)postWithUrlString:(NSString *)urlString
                                    params:(NSDictionary *)params
                           cacheDataPolicy:(iKYRequestCachePolicy)cachePolicy
                                   success:(iKYResponseSuccess)success
@@ -190,7 +186,7 @@ typedef void(^iKYUpLoadProgress)(NSUInteger bytesRead,
  *
  *  @return 返回的对象中有可取消请求的API
  */
-+ (iKYRequstOperation *)downloadWithUrlString:(NSString *)urlString
++ (iKYRequestDownLoadDataTask *)downloadWithUrlString:(NSString *)urlString
                              saveToPath:(NSString *)saveToPath
                                progress:(iKYDownloadProgress) progressBlock
                                 success:(iKYResponseSuccess)success
@@ -208,7 +204,7 @@ typedef void(^iKYUpLoadProgress)(NSUInteger bytesRead,
  *
  *  @return 返回的对象中有可取消请求的API
  */
-+ (iKYRequstOperation *)uploadWithImage:(UIImage *)image
++ (iKYRequestUpLoadDataTask *)uploadWithImage:(UIImage *)image
                               urlString:(NSString *)urlString
                                fileName:(NSString *)fileName
                                    name:(NSString *)name
@@ -230,7 +226,7 @@ typedef void(^iKYUpLoadProgress)(NSUInteger bytesRead,
  *
  *  @return 返回的对象中有可取消请求的API
  */
-+ (iKYRequstOperation *)uploadWithImage:(UIImage *)image
++ (iKYRequestUpLoadDataTask *)uploadWithImage:(UIImage *)image
                               urlString:(NSString *)urlString
                                fileName:(NSString *)fileName
                                    name:(NSString *)name
@@ -252,7 +248,7 @@ typedef void(^iKYUpLoadProgress)(NSUInteger bytesRead,
  *
  *  @return 返回的对象中有可取消请求的API
  */
-+ (iKYRequstOperation *)uploadWithImage:(UIImage *)image
++ (iKYRequestUpLoadDataTask *)uploadWithImage:(UIImage *)image
                               urlString:(NSString *)urlString
                                fileName:(NSString *)fileName
                                    name:(NSString *)name
@@ -273,7 +269,7 @@ typedef void(^iKYUpLoadProgress)(NSUInteger bytesRead,
  *
  *  @return 返回的对象中有可取消请求的API
  */
-+ (iKYRequstOperation *)uploadWithImage:(UIImage *)image
++ (iKYRequestUpLoadDataTask *)uploadWithImage:(UIImage *)image
                               urlString:(NSString *)urlString
                                fileName:(NSString *)fileName
                                    name:(NSString *)name

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6807DD673957B94EE9469859 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5804AACE2D8FBD03BB9D71BF /* libPods.a */; };
+		32C828A0FC011991BABF80CE /* libPods-iKYNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99A9A2DB8AFE8121D982DD74 /* libPods-iKYNetworking.a */; };
 		E4DCBFB91C534C7000542741 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DCBFB81C534C7000542741 /* main.m */; };
 		E4DCBFBC1C534C7000542741 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DCBFBB1C534C7000542741 /* AppDelegate.m */; };
 		E4DCBFBF1C534C7000542741 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4DCBFBE1C534C7000542741 /* ViewController.m */; };
@@ -18,9 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		119358FEB3F34DB1D95A9EAD /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		5804AACE2D8FBD03BB9D71BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DAA39C288EA4A95CF49F65FF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		42D51710573D744A0033EE80 /* Pods-iKYNetworking.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iKYNetworking.release.xcconfig"; path = "Pods/Target Support Files/Pods-iKYNetworking/Pods-iKYNetworking.release.xcconfig"; sourceTree = "<group>"; };
+		99A9A2DB8AFE8121D982DD74 /* libPods-iKYNetworking.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iKYNetworking.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A237BDDAACA9589780A3362A /* Pods-iKYNetworking.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iKYNetworking.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iKYNetworking/Pods-iKYNetworking.debug.xcconfig"; sourceTree = "<group>"; };
 		E4DCBFB41C534C7000542741 /* iKYNetworking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iKYNetworking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4DCBFB81C534C7000542741 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E4DCBFBA1C534C7000542741 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,28 +40,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6807DD673957B94EE9469859 /* libPods.a in Frameworks */,
+				32C828A0FC011991BABF80CE /* libPods-iKYNetworking.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BACB12753DB89C813AB9F353 /* Pods */ = {
+		67BFE97439CCBAA5D603B7A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				119358FEB3F34DB1D95A9EAD /* Pods.debug.xcconfig */,
-				DAA39C288EA4A95CF49F65FF /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		D3A7DD06D6B17C98B9E76C10 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5804AACE2D8FBD03BB9D71BF /* libPods.a */,
+				99A9A2DB8AFE8121D982DD74 /* libPods-iKYNetworking.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B800F744C8E2D5F48CB16AC1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A237BDDAACA9589780A3362A /* Pods-iKYNetworking.debug.xcconfig */,
+				42D51710573D744A0033EE80 /* Pods-iKYNetworking.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		E4DCBFAB1C534C7000542741 = {
@@ -69,8 +69,8 @@
 			children = (
 				E4DCBFB61C534C7000542741 /* iKYNetworking */,
 				E4DCBFB51C534C7000542741 /* Products */,
-				BACB12753DB89C813AB9F353 /* Pods */,
-				D3A7DD06D6B17C98B9E76C10 /* Frameworks */,
+				B800F744C8E2D5F48CB16AC1 /* Pods */,
+				67BFE97439CCBAA5D603B7A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,11 +123,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4DCBFCB1C534C7000542741 /* Build configuration list for PBXNativeTarget "iKYNetworking" */;
 			buildPhases = (
-				3DA74734466D113A026AF272 /* Check Pods Manifest.lock */,
+				55576D15283E39003ED2975F /* [CP] Check Pods Manifest.lock */,
 				E4DCBFB01C534C7000542741 /* Sources */,
 				E4DCBFB11C534C7000542741 /* Frameworks */,
 				E4DCBFB21C534C7000542741 /* Resources */,
-				FFED4CC24DBF8FF4A3BD1BBA /* Copy Pods Resources */,
+				499F245B36F47F0632E1E94A /* [CP] Embed Pods Frameworks */,
+				7E0D34D116FC0A0C1A6AA37B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,34 +185,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3DA74734466D113A026AF272 /* Check Pods Manifest.lock */ = {
+		499F245B36F47F0632E1E94A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iKYNetworking/Pods-iKYNetworking-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FFED4CC24DBF8FF4A3BD1BBA /* Copy Pods Resources */ = {
+		55576D15283E39003ED2975F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7E0D34D116FC0A0C1A6AA37B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iKYNetworking/Pods-iKYNetworking-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -334,7 +350,7 @@
 		};
 		E4DCBFCC1C534C7000542741 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 119358FEB3F34DB1D95A9EAD /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A237BDDAACA9589780A3362A /* Pods-iKYNetworking.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iKYNetworking/Info.plist;
@@ -347,7 +363,7 @@
 		};
 		E4DCBFCD1C534C7000542741 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DAA39C288EA4A95CF49F65FF /* Pods.release.xcconfig */;
+			baseConfigurationReference = 42D51710573D744A0033EE80 /* Pods-iKYNetworking.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iKYNetworking/Info.plist;
